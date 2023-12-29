@@ -1,0 +1,175 @@
+<!-- <!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="stylesheet.css">
+    </head>
+    <body>
+      <div id="ball">
+
+      </div>
+        <script src="script.js" async defer></script>
+    </body>
+</html> -->
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Move the Ball</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+    }
+
+    #ball {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 50px;
+      height: 50px;
+      background-color: red;
+      border-radius: 50%;
+    }
+  </style>
+</head>
+<body>
+  <div id="ball"></div>
+
+  <script>
+    // // Get the ball element
+    // const ball = document.getElementById("ball");
+
+    // // Set the initial position of the ball randomly inside the viewport
+    // const viewportWidth = window.innerWidth;
+    // const viewportHeight = window.innerHeight;
+    //  const ballSize = 50; // Diameter of the ball
+    // const maxPositionX = viewportWidth - ballSize;
+    // const maxPositionY = viewportHeight - ballSize;
+    // let ballPositionX = Math.floor(Math.random() * maxPositionX);
+    // let ballPositionY = Math.floor(Math.random() * maxPositionY);
+    // ball.style.top = ballPositionY + "px";
+    // ball.style.left = ballPositionX + "px";
+
+    // // Function to move the ball
+    // function moveBall(direction) {
+    //   switch (direction) {
+    //     case "up":
+    //       ballPositionY -= 10;
+    //       break;
+    //     case "left":
+    //       ballPositionX -= 10;
+    //       break;
+    //     case "down":
+    //       ballPositionY += 10;
+    //       break;
+    //     case "right":
+    //       ballPositionX += 10;
+    //       break;
+    //   }
+
+    //   // Restrict the ball movement inside the viewport
+    //   ballPositionX = Math.max(0, Math.min(ballPositionX, maxPositionX));
+    //   ballPositionY = Math.max(0, Math.min(ballPositionY, maxPositionY));
+
+    //   // Update the ball position
+    //   ball.style.top = ballPositionY + "px";
+    //   ball.style.left = ballPositionX + "px";
+    // }
+
+    // // Handle keydown event for moving the ball
+    // document.addEventListener("keydown", function(event) {
+    //   switch (event.key) {
+    //     case "w":
+    //       moveBall("up");
+    //       break;
+    //     case "a":
+    //       moveBall("left");
+    //       break;
+    //     case "s":
+    //       moveBall("down");
+    //       break;
+    //     case "d":
+    //       moveBall("right");
+    //       break;
+    //   }
+    // });
+
+
+  
+//     var b = document.getElementById("ball");
+// let verticalModifier = -50;
+// let horizontalModifier = 0;
+// let viewportHeight=window.innerHeight;
+// let viewportWidth=window.innerWidth;
+// if(verticalModifier<viewportHeight&&horizontalModifier<viewportWidth){
+//     window.addEventListener('keypress', function (event) {
+//   switch (event.key) {
+//     case 'w':
+//       b.style.transform = `translate(${horizontalModifier}px, ${verticalModifier -= 5}px)`;
+//       break;
+//     case 'a':
+//       b.style.transform = `translate(${horizontalModifier -= 5}px, ${verticalModifier}px)`;
+//       break;
+//     case 's':
+//       b.style.transform = `translate(${horizontalModifier}px, ${verticalModifier += 5}px)`;
+//       break;
+//     case 'd':
+//       b.style.transform = `translate(${horizontalModifier += 5}px, ${verticalModifier}px)`;
+//       break;
+//   }
+// });
+// }
+
+
+// // Trigger initial movement to set the ball at the starting position
+// b.style.transform = `translate(${horizontalModifier}px, ${verticalModifier}px)`;
+
+var b = document.getElementById("ball");
+let verticalModifier = 0;
+let horizontalModifier = 0;
+let viewportHeight = window.innerHeight;
+let viewportWidth = window.innerWidth;
+let ballSize = 50; // Adjust this value according to the size of your ball element
+
+window.addEventListener('keypress', function (event) {
+  switch (event.key) {
+    case 'w':
+      if (verticalModifier > -viewportHeight / 2) {
+        b.style.transform = `translate(${horizontalModifier}px, ${verticalModifier -= 5}px)`;
+      }
+      break;
+    case 'a':
+      if (horizontalModifier > -viewportWidth / 2) {
+        b.style.transform = `translate(${horizontalModifier -= 5}px, ${verticalModifier}px)`;
+      }
+      break;
+    case 's':
+      if (verticalModifier < (viewportHeight / 2) - ballSize) {
+        b.style.transform = `translate(${horizontalModifier}px, ${verticalModifier += 5}px)`;
+      }
+      break;
+    case 'd':
+      if (horizontalModifier < (viewportWidth / 2) - ballSize) {
+        b.style.transform = `translate(${horizontalModifier += 5}px, ${verticalModifier}px)`;
+      }
+      break;
+  }
+});
+
+// Trigger initial movement to set the ball at the starting position
+b.style.transform = `translate(${horizontalModifier}px, ${verticalModifier}px)`;
+
+
+
+
+  </script>
+</body>
+</html>
